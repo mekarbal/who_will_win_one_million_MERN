@@ -20,7 +20,9 @@ function Team(props) {
 
   useEffect(async () => {
     await axios
-      .post(process.env.REACT_APP_API_URL+"/group/all", { group_code: group_code })
+      .post(process.env.REACT_APP_API_URL + "/group/all", {
+        group_code: group_code,
+      })
       .then((response) => {
         setParticipants(response.data);
       })
@@ -29,7 +31,7 @@ function Team(props) {
       });
   }, []);
 
-  if (participants.length == 2) {
+  if (participants.length === 3) {
     props.history.push(`/gamestart?group_code=${group_code}`);
   }
 
@@ -57,7 +59,9 @@ function Team(props) {
     <div>
       {" "}
       <div className="context mx-auto">
-        <h1 className="text-center">Team Members</h1>
+        <h1 className="text-center">
+          Team Members (Group Code : {group_code})
+        </h1>
         <div className="row mt-5 mx-auto justify-content-center">
           <img
             className="text-center mt-5 "

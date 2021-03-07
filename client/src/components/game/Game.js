@@ -60,7 +60,7 @@ function Game(props) {
       })
       .catch((err) => notify());
 
-    if (count == 1) {
+    if (count == 14) {
       props.history.push("/final?group_code=" + group_code);
     }
   };
